@@ -8,9 +8,14 @@ Task = namedtuple('Task', ['summary', 'owner', 'done', 'id'])
 Task.__new__.__defaults__ = (None, None, False, None)
 
 
+# pytest -l - при неудачном тесте будут отображаться локальные переменные
+# pytest --maxfail=2 --tb=no - аксимальное клоичество сбоев
+# pytest -x - проверка остановится после первого проваленного теста
+# pytest -v -m run_these_please - запустить тесты с маркой. Пример марки: @pytest.mark.run_these_please
 # pytest -v -k "asdict or defaults" - проходит выбранные тесты и показывает результат. (test_asdict и test_defaults)
 # pytest --collect-only - показывает функции из файлов
 # pytest -v test_four.py - для получения еще больше описаний разлиций
+# pytest -q - для сокращения описания
 # pytest test_four.py::test_asdict - для запуска только одной функции
 def test_asdict():
     """_asdict() должен возвращать словарь."""
