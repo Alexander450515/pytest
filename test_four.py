@@ -6,6 +6,10 @@ Task = namedtuple('Task', ['summary', 'owner', 'done', 'id'])
 Task.__new__.__defaults__ = (None, None, False, None)
 
 
+# pytest -v -k "asdict or defaults" - проходит выбранные тесты и показывает результат. (test_asdict и test_defaults)
+# pytest --collect-only - показывает функции из файлов
+# pytest -v test_four.py - для получения еще больше описаний разлиций
+# pytest test_four.py::test_asdict - для запуска только одной функции
 def test_asdict():
     """_asdict() должен возвращать словарь."""
     t_task = Task('do something', 'okken', True, 21)
